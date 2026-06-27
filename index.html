@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بيانات التصريح</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+   <style>
+    /* إضافة padding-bottom للجسم لضمان ظهور المحتوى فوق الصورة الثابتة */
+    body { 
+        font-family: sans-serif; 
+        background: #f0f0f0; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 20px; 
+        padding-bottom: 120px; /* زيادة المساحة في الأسفل */
+        margin: 0; 
+        min-height: 100vh; /* التأكد من أن طول الصفحة يغطي الشاشة */
+    }
+
+    .card { background: white; width: 350px; border: 2px solid #2c3e50; padding: 20px; border-radius: 10px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+
+    h2 { color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #dcdcdc; padding: 8px; text-align: center; }
+    th { background-color: #f8f9fa; }
+
+    /* تعديل تنسيق السوشيال ميديا ليكون ثابتاً في الأسفل */
+    .social-container { 
+        position: fixed; /* تثبيت العنصر */
+        bottom: 0;       /* الالتصاق بأسفل الشاشة */
+        left: 0;
+        width: 100%; 
+        text-align: center;
+        background: #f0f0f0; /* إضافة خلفية لتغطية المحتوى أسفله */
+        padding: 10px 0;
+    }
+    .social-container img { 
+        width: 100%; 
+        max-width: 500px; 
+        height: auto; 
+        display: block; 
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+
+<div class="card" id="permit-card">
+    <h2>بيانات التصريح</h2>
+    <p>تاريخ التصريح: <span id="date"></span></p>
+    <p style="color: red;">القطاع : <span id="sector"></span></p>
+    
+    <svg id="barcode"></svg>
+    <p>الوحدة : <span id="unit"></span></p>
+    <p>اسم المالك : <span id="owner"></span></p>
+    <p>عدد ايام التصريح : <span id="days"></span></p>
+    <p>عدد مرات الدخول بالتصريح : <span id="entries"></span></p>
+
+    <table>
+        <tr><th style="background:rgb(205, 241, 250);">اسماء الزوار</th><th style="background:rgb(205, 241, 250);">الهوية</th></tr>
+        <tr><td style="background:rgb(205, 241, 250);" id="visitor-name"></td><td style="color: rgb(59, 113, 150);background:rgb(205, 241, 250);" id="visitor-id"></td></tr>
+    </table>
+
+    <div id="qrcode" style="display:flex; justify-content:center;"></div>
+</div>
+
+<div class="social-container">
+    <img src="https://i.postimg.cc/50TpMxTH/Whats-App-Image-2026-06-22-at-5-12-01-PM.jpg" alt="Social Media">
+</div>
+
+<script>
+    const data = {
+        date: "13.06.2026",
+        sector: "قطاع رقم 4",
+        unit: "D2F2B209",
+        owner: "عبد القادر عبد الغفور امين قشقري",
+        days: "3",
+        entries: "10",
+        visitorName: "عبدالله حسان دوش",
+        visitorId: "1116425768"
+    };
+
+    document.getElementById('date').innerText = data.date;
+    document.getElementById('sector').innerText = data.sector;
+    document.getElementById('unit').innerText = data.unit;
+    document.getElementById('owner').innerText = data.owner;
+    document.getElementById('days').innerText = data.days;
+    document.getElementById('entries').innerText = data.entries;
+    document.getElementById('visitor-name').innerText = data.visitorName;
+    document.getElementById('visitor-id').innerText = data.visitorId;
+
+    JsBarcode("#barcode", data.unit, { width: 0.70, height: 170, displayValue: false });
+    new QRCode(document.getElementById("qrcode"), "https://mareamzamzami.github.io/Durratcity/");
+</script>
+</body>
+</html>
