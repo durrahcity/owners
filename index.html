@@ -24,21 +24,29 @@
         width: 100%; 
         height: 100%;
         border: 2px solid #2c3e50; 
-        padding: 20px; 
+        padding: 20px 0; 
         border-radius: 10px; 
         text-align: center; 
         font-weight: bolder; 
         margin-bottom: 20px; 
         font-size: 20px;
+        overflow: hidden;
     }
 
     h2 { color: #2c3e50; }
 
     /* الجدول سيأخذ عرض الكارد بالكامل */
     table { 
-        width: 95%; 
+        width: 90%; 
         border-collapse: collapse; 
-        margin: 20px 0; 
+        margin: 40px auto; 
+        border: 1px solid;
+        border-left: 20px;
+        border-right: 20px;
+    }
+    h2, p,#barcode, #qrcode{
+        padding-left:20px;
+        padding-right:20px;
     }
     th, td { border: 1px solid #dcdcdc; padding: 12px; text-align: center; } /* زدت padding قليلاً لتوسيع الخلايا */
     th { background-color: #f8f9fa; }
