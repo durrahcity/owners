@@ -5,8 +5,7 @@
     <title>بيانات التصريح</title>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-   <style>
-    /* إضافة padding-bottom للجسم لضمان ظهور المحتوى فوق الصورة الثابتة */
+  <style>
     body { 
         font-family: sans-serif; 
         background: #f0f0f0; 
@@ -14,15 +13,16 @@
         flex-direction: column; 
         align-items: center; 
         padding: 20px; 
-        padding-bottom: 120px; /* زيادة المساحة في الأسفل */
+        padding-bottom: 120px; 
         margin: 0; 
-        min-height: 100vh; /* التأكد من أن طول الصفحة يغطي الشاشة */
+        min-height: 100vh; 
     }
 
+    /* تعديل العرض هنا */
     .card { 
         background: white; 
-        width: 90%;            /* بدلاً من 350px ليكون متجاوباً مع عرض الشاشة */
-        max-width: 600px;      /* تحديد حد أقصى للعرض ليبقى التصميم مرتباً */
+        width: 90%; 
+        max-width: 90%; 
         border: 2px solid #2c3e50; 
         padding: 20px; 
         border-radius: 10px; 
@@ -32,22 +32,23 @@
     }
 
     h2 { color: #2c3e50; }
+
+    /* الجدول سيأخذ عرض الكارد بالكامل */
     table { 
-        width: 100%;           /* الجدول سيأخذ 100% من عرض الـ card */
+        width: 100%; 
         border-collapse: collapse; 
         margin: 20px 0; 
     }
-    th, td { border: 1px solid #dcdcdc; padding: 8px; text-align: center; }
+    th, td { border: 1px solid #dcdcdc; padding: 12px; text-align: center; } /* زدت padding قليلاً لتوسيع الخلايا */
     th { background-color: #f8f9fa; }
 
-    /* تعديل تنسيق السوشيال ميديا ليكون ثابتاً في الأسفل */
     .social-container { 
-        position: fixed; /* تثبيت العنصر */
-        bottom: 0;       /* الالتصاق بأسفل الشاشة */
+        position: fixed; 
+        bottom: 0; 
         left: 0;
         width: 100%; 
         text-align: center;
-        background: #f0f0f0; /* إضافة خلفية لتغطية المحتوى أسفله */
+        background: #f0f0f0; 
         padding: 10px 0;
     }
     .social-container img { 
