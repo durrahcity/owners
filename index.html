@@ -19,10 +19,24 @@
         min-height: 100vh; /* التأكد من أن طول الصفحة يغطي الشاشة */
     }
 
-    .card { background: white; width: 350px; border: 2px solid #2c3e50; padding: 20px; border-radius: 10px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+    .card { 
+        background: white; 
+        width: 90%;            /* بدلاً من 350px ليكون متجاوباً مع عرض الشاشة */
+        max-width: 600px;      /* تحديد حد أقصى للعرض ليبقى التصميم مرتباً */
+        border: 2px solid #2c3e50; 
+        padding: 20px; 
+        border-radius: 10px; 
+        text-align: center; 
+        font-weight: bold; 
+        margin-bottom: 20px; 
+    }
 
     h2 { color: #2c3e50; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    table { 
+        width: 100%;           /* الجدول سيأخذ 100% من عرض الـ card */
+        border-collapse: collapse; 
+        margin: 20px 0; 
+    }
     th, td { border: 1px solid #dcdcdc; padding: 8px; text-align: center; }
     th { background-color: #f8f9fa; }
 
