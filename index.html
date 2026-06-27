@@ -20,29 +20,35 @@
 
     /* تعديل العرض هنا */
    /* 1. عدلي الكارد ليكون له هوامش جانبية واضحة */
+/* تنسيق البطاقة الأساسي */
 .card { 
     background: white; 
-    width: 90%; /* عرض البطاقة الكلي */
-    padding: 20px 15px; /* هوامش جانبية 15px */
+    width: 90%; 
+    max-width: 500px; /* تحديد عرض أقصى يضمن ثبات المقاسات */
     border: 2px solid #2c3e50; 
+    padding: 20px; 
     border-radius: 10px; 
     text-align: center; 
     font-weight: bolder; 
     margin: 20px auto; 
     font-size: 20px;
+    box-sizing: border-box; /* هذا السطر مهم جداً لمنع خروج الجدول عن الحدود */
 }
 
-/* 2. الجدول يأخذ 100% من المساحة المتاحة داخل الكارد */
+/* تنسيق الجدول */
 table { 
     width: 100%; 
     border-collapse: collapse; 
-    margin: 20px 0; 
+    margin: 25px 0; /* مسافة عمودية كافية فوق وتحت الجدول */
     border: 1px solid #dcdcdc;
+    table-layout: fixed; /* يضمن توزيع الأعمدة بشكل متساوي */
 }
 
-/* 3. للتأكد من أن الباركود ليس لاصقاً بالجدول */
+/* تحسين المسافة تحت الجدول */
 #qrcode {
-    margin-top: 30px; /* مسافة واضحة بين الجدول والباركود */
+    margin-top: 30px; 
+    display: flex;
+    justify-content: center;
 }
     th, td { border: 1px solid #dcdcdc; padding: 12px; text-align: center; } /* زدت padding قليلاً لتوسيع الخلايا */
     th { background-color: #f8f9fa; }
